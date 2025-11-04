@@ -2228,6 +2228,16 @@
                 </div>
                 <div class="module-content">
                     <div class="form-group">
+                        <label for="base64Link">Base64订阅</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="base64Link" title="Base64订阅" readonly>
+                            <button type="button" class="btn btn-qrcode"
+                                onclick="showQRCode('base64Link')">📱二维码</button>
+                            <button type="button" class="btn btn-primary"
+                                onclick="copySubscription('base64Link')">复制订阅</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="clashLink">Clash订阅</label>
                         <div class="input-wrapper">
                             <input type="text" id="clashLink" title="Clash订阅" readonly>
@@ -2871,6 +2881,7 @@
             const link = currentConfig.LINK;
             document.getElementById('LinkURL').value = currentConfig.LINK;
             document.getElementById('subLink').value = `https://${host}/sub?token=${token}`;
+            document.getElementById('base64Link').value = `https://${host}/sub?token=${token}&b64`;
             document.getElementById('clashLink').value = `https://${host}/sub?token=${token}&clash`;
             document.getElementById('singboxLink').value = `https://${host}/sub?token=${token}&sb`;
 
